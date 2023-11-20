@@ -1,0 +1,909 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://kit.fontawesome.com/5bee9818d3.js" crossorigin="anonymous"></script>
+    <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+    <script src="./listener.js" type="text/javascript"></script>    
+    <script type="text/javascript" src="ui.js"></script>
+  </head>
+  
+  <body>
+    <main class="content"></main>
+      <script src="payday.js"></script>
+  </body>
+
+
+  <body>
+
+
+    <!-- DE AICI PORNESTE HUDUL !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+  <!-- <div class="codRadio" style =' display: block;' id = 'codRadio'>
+    <h1 style="font-size: 18px;  margin-left: -97%; margin-top: -15%;  color: white; width: 100%; font-family: fontcustom; opacity: 70%;">COD 0 - URGENȚĂ, toate unitățiile răspundeți!</h1>
+    <h1 style="font-size: 18px;  margin-left: -104%; margin-top: -4%;  color: white; width: 100%; font-family: fontcustom; opacity: 70%;">COD 1 - Răspundeți fără sirene și lumini</h1>
+    <h1 style="font-size: 18px;  margin-left: -98%; margin-top: -4%;  color: white; width: 100%; font-family: fontcustom; opacity: 70%;">COD 2 - Răspundeți cu lumini dar fără sirene</h1>
+    <h1 style="font-size: 18px;  margin-left: -102%; margin-top:  -4%;  color: white; width: 100%; font-family: fontcustom; opacity: 70%;">COD 3 - Am nevoie de asistență imediată</h1>
+    <h1 style="font-size: 18px;  margin-left: -111%; margin-top:  -4%;  color: white; width: 100%; font-family: fontcustom; opacity: 70%;">COD 4 - Am nevoie de ambulanță</h1>
+    <h1 style="font-size: 18px;  margin-left: -105%; margin-top:  -4%;  color: white; width: 100%; font-family: fontcustom; opacity: 70%;">COD 5 - Un medic are nevoie de ajutor</h1>
+    <h1 style="font-size: 18px;  margin-left: -116%; margin-top:  -4%;  color: white; width: 100%; font-family: fontcustom; opacity: 70%;">COD 6 - Totul este în ordine</h1>
+  </div> -->
+
+
+    <div class = 'allhud' style =' display: none;' id = 'allhud' >
+      <img src=""></img>
+
+      <div class = 'money'>
+        <h4 id = 'myname' style="right: 29px; font-size: 20px; margin-top: 19%;"> </h4> 
+
+        <h2 id = 'mymoney' style="font-size: 28px; margin-top: 15%;"></h2>
+        <h3 id = 'bankmoney' style="font-size: 18px;  margin-top: 4%;"><span class="symbol"></span></h3>
+        <!-- <h5 id = 'diamante'></h5> -->
+        <div class = 'stele'>
+          <img src="https://i.imgur.com/blP9BOw.png" style="margin-top: -80%">
+        </div>      
+        
+        <div class="quest" style =' display: none;' id = 'quest'>
+          <p style="color: rgb(7, 255, 7); font-weight: 800; text-align: right; width: 1000px; text-shadow: none; margin-top: -10px; font-family: fontcustom; letter-spacing: 1px; font-size: 20px;">MISIUNE &nbsp <span style=" padding-left: 5px; font-size: 8px; border-radius: 9999999px; padding-right: 5px; padding-top: 0px; padding-bottom: 0px; border-radius: 99999999999px; border: 2px solid rgb(7, 255, 7); background: rgb(22, 22, 22); color: rgb(255, 255, 255); text-shadow: none;  font-weight: 700; bottom: -40px;">  </span></p> 
+          <p id ='misiune' style="text-transform: uppercase; font-weight: 800; text-shadow: none;  text-align: right;width: 1000px; font-family: fontcustom; font-size: 20px;">Du-te livreaza coaiele  &nbsp <span style=" padding-left: 5px; font-size: 8px; border-radius: 9999999px; padding-right: 5px; padding-top: 0px; padding-bottom: 0px; border-radius: 99999999999px; border: 2px solid #fff; background: rgb(22, 22, 22); color: rgb(255, 255, 255); text-shadow: none;  font-weight: 700; bottom: -40px;">  </span></p> 
+        </div>        
+       <!--       <h3 class="tickete" style="display: block; font-size: 1.2rem;  padding-left: 5px; margin-top: 52px;" id = 'tickete'> </h3>  -->
+        
+
+        <div class="respawn" style =' display: none;' id = 'respawn'>
+
+
+          <div class="intrebaresemn">
+            <span style="font-size: 120px; border-right: 1px solid white; padding: 30px; font-family: fontcustom; color: #fff;"> ? </span>
+            <h1 style="font-size: 20px; margin-left: -33%; margin-top: -30%;color: rgba(255, 255, 255, 0.596); "> HINT </h1>
+            <h1 style="font-size: 24px;  margin-left: 11%; margin-top: -1%;  color: white; width: 100%;"> DACA AI MURIT IN STIL NON-RP </h1>
+            <h1 style="font-size: 24px;  margin-left: 29%; margin-top: -3%;  color: white; width: 100%;"> CHEAMA UN ECHIPAJ MEDICAL APASAND TASTA 'E' </h1>
+          </div>
+
+          <div class="textedeath">
+            <h1 id = "respawnText" style="font-family: fontcustom; font-size: 40px; font-weight: 800;">  </h1>
+            <h1 style="margin-top: -15%; letter-spacing: normal; font-size: 23px; text-align: center; width: 600%; margin-left: -250%;"> WAITING FOR HELP </h1>
+            <h1 style="margin-top: -10%; font-size: 20px; letter-spacing: normal; text-align: center; width: 600%; margin-left: -250%;"> BEFORE DYING </h1>
+          </div>
+
+          <div class="pozadeath">
+            <img src="https://i.imgur.com/43hBX5i.png">
+          </div>
+
+        </div>
+
+        <div class="playtime">
+          <div class="textplay">
+            <h1 style="color: rgba(255, 255, 255, 0.494); font-size: 13px; margin-top: 34%;">REMAINING</h1>
+            <div id ="paydaytext">
+            <h1 class="payday" style="font-size: 24px; margin-top: -6%;"> 03:53 </h1>
+            </div>
+            <h1 style="color: rgba(255, 255, 255, 0.494); font-size: 13px;  margin-top: -10%;"> BEFORE RECEVING </h1>
+            <h1 id="baniprimiti" style="font-size: 27px; "> PAYDAY </h1>
+            <!-- <img src="https://imgur.com/AOygPQL.png" width="120" style="margin-top: 210%; margin-left: -70%;"> -->
+          </div>
+        </div>
+        <!-- <div class="paydayImagine"></div>
+        <img src="https://imgur.com/AOygPQL.png" width="120" style="margin-top: 210%; margin-left: -70%;">
+      </div> -->
+
+        <div class="paydayContainer" style="display: none;">
+            <h1 class = "textpd"></h1>
+            <h1 class="textpd2"> AI GRIJA CE FACI CU EL! </h1>
+        </div> 
+
+        <div class="jail" id="jail"  style="display: none;">
+          <div class="totjailu">
+            <h1 id = "minutes" class="minutes"></h1>
+            <div class="icon"><i class="fas fa-diagnoses"></i></div>
+            <h1 class="youare"> YOU ARE IN ADMIN JAIL </h1>
+            <h1 id = "motiv" class="motiv" style="margin-top: 1.3%;"></h1>
+            <h1 id = "staffMember" class="staffmember" style="margin-top: 3.9%;"></h1>
+            <div class="iconsad"><i class="fas fa-frown"></i></div>
+          </div>
+        </div>
+
+        <div class="texte" style =' display: block;' id = 'texte'>
+          <p style="margin-top: 87px;"><i class="fas fa-mobile-alt" aria-hidden="true" style = "position:absolute;color:rgb(255,255,255); top: 7px; right: 53px; font-size: 20px; border-radius: 4px; text-shadow: none;"></i> &nbsp <span style=" padding-left: 8px; font-size: 12px; border-radius: 9999999px; padding-right: 8px; padding-top: 5px; padding-bottom: 5px; border: 3px solid rgba(255, 255, 255, 0.521); background: rgba(255, 255, 255, 0); color: rgb(255, 255, 255); text-shadow: none;  font-weight: 700;"> L </span>
+          <p style="margin-top: 133px;"><i class="fas fa-atlas" aria-hidden="true" style = "position:absolute;color:rgb(255,255,255); top: 5px; right: 53px; font-size: 20px; border-radius: 4px; text-shadow: none;"></i> &nbsp <span style=" padding-left: 8px; font-size: 12px; border-radius: 9999999px; padding-right: 8px; padding-top: 5px; padding-bottom: 5px; border: 3px solid rgba(255, 255, 255, 0.521); background: rgba(255, 255, 255, 0); color: rgb(255, 255, 255); text-shadow: none;  font-weight: 700;"> K </span>
+          <p style="margin-top: 178px;"><i class="fas fa-lock" aria-hidden="true" style = "position:absolute;color:rgb(255,255,255); top: 8px; right: 53px; font-size: 18px; border-radius: 4px; text-shadow: none;"></i> &nbsp <span style=" padding-left: 5px; font-size: 12px; border-radius: 9999999px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px; border: 3px solid rgba(255, 255, 255, 0.521); background: rgba(255, 255, 255, 0); color: rgb(255, 255, 255); text-shadow: none;  font-weight: 700;"> F1 </span>  
+          <p style="margin-top: 222px;"><i class="fas fa-bars" aria-hidden="true" style = "position:absolute;color:rgb(255,255,255); top: 8px; right: 53px; font-size: 20px; border-radius: 4px; text-shadow: none;"></i> &nbsp <span style=" padding-left: 10px; font-size: 12px; border-radius: 9999999px; padding-right: 10px; padding-top: 5px; padding-bottom: 5px; border: 3px solid rgba(255, 255, 255, 0.521); background: rgba(255, 255, 255, 0); color: rgb(255, 255, 255); text-shadow: none;  font-weight: 700;"> ` </span>    
+            <p style="margin-top: 268px;"><i class="fas fa-tshirt" aria-hidden="true" style = "position:absolute;color:rgb(255,255,255); top:8px; right: 53px; font-size: 18px; border-radius: 4px; text-shadow: none;"></i> &nbsp <span style="padding-left: 5px; font-size: 12px; border-radius: 9999999px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px; border: 3px solid rgba(255, 255, 255, 0.521); background: rgba(255, 255, 255, 0); color: rgb(255, 255, 255); text-shadow: none;  font-weight: 700;"> F2 </span>   
+             
+        </div>
+
+
+        <div class = 'voicechat' style = 'display: block; margin-top: 1%;'>
+          <p style="margin-top: 40px;"> <span style=" padding-left: 7px;  font-size: 11px; border-radius: 9999999px; padding-right: 4px; padding-top: 5px; padding-bottom: 5px; border: 3px solid rgba(255, 255, 255, 0); background: rgba(255, 255, 255, 0); color: rgb(255, 255, 255, 0); text-shadow: none;  font-weight: 700;"> N </span>
+            
+
+
+          <i id = 'voceaMagicaAPorumbelului'></i>
+          <i id = 'talent'></i>
+    
+          
+        </div>
+
+        
+
+
+         <div class = 'safezone' style =' display: none;' id = 'safezone' >
+             <img src="https://imgur.com/gQK3Fy8.png" style="color: white; margin-top: 10%"></img>
+             <img srsc="https://imgur.com/gQK3Fy8.png" style="margin-top: 20%; margin-left: 60%;">
+         </div> 
+     </div> 
+    
+
+    <!-- AICI SE TERMINA HUDU !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+
+
+<!-- AICI INCEPE TELEFONU !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+    <!-- <div id="telefon" href="#tel">
+        <div class="primubg">
+          <div class="doibg">
+            <div class="liniesus">
+              <div class="ceas" id ="demo">
+              </div>
+
+            <div class="tottelefonu">
+              <div class="bgtel">
+                <div class="nrtel" id="ss"></div>
+                <div class="numberteltext">YOUR NUMBER</div>
+              </div>
+
+            <div class="setari">
+              <div class="settings"><i class="fas fa-cog"></i></div>
+              <div class="textmic">SETTINGS</div>
+            </div>
+
+            <div class="btpay">
+              <a class="pay" href="#pay">BT</a>
+              <div class="textmic">BT PAY</div>
+            </div>
+
+            <div class="callstaff">
+              <div class="calladm"><i class="fas fa-hands-helping"></i></div>
+              <div class="textmicadm">ADMIN TICKET</div>
+            </div>
+
+            <div class="call2">
+              <div class="call22"><i class="fas fa-hands-helping"></i></div>
+              <div class="textmic2">ADMIN TICKET</div>
+            </div>
+
+            <div class="call6">
+              <div class="call66"><i class="fas fa-hands-helping"></i></div>
+            </div>
+
+            <div class="call4">
+              <div class="call44"><i class="fas fa-hands-helping"></i></div>
+              <div class="textmic4">ADMIN TICKET</div>
+            </div>
+
+            <div class="call5">
+              <div class="call55"><i class="fas fa-hands-helping"></i></div>
+            </div>
+
+            <div class="servicii">
+              <a class="services" href="#servicii"><i class="fas fa-shield-virus"></i></a>
+              <div class="textservicii">SERVICES</div>
+            </div>
+
+            <div class="calltaxi">
+              <a class="taxi" onclick="sunaTaxi()"><i class="fas fa-taxi"></i></a>
+            </div>
+
+            <div class="gps">
+              <div class="showgps"><i class="fas fa-compass"></i></div>
+            </div>
+
+            </div>
+
+              </div>
+            </div>
+          </div>
+        </div> -->
+<!-- 
+        
+        <div id="servicii" class="bgservicii">
+          <div class="popup">
+
+
+            <a class="inchide" href="#tel">X</a>
+
+            <div class="callambulance">
+              <a class="ambulanta" href="#verifycheck"><i class="fas fa-ambulance"></i></a>
+              <div class="textems">Enemergency Call</div>
+            </div>
+
+            <div class="calllspd">
+              <a class="lspd" href="#verifycheckpol"><i class="fas fa-car-alt"></i></a>
+              <div class="textlsp">LSPD Call</div>
+            </div>
+
+
+          </div>                   
+          
+        </div> 
+
+        <div id="verifycheck" class="verifycheckbg">
+          <div class="popup">
+
+
+            <div class="verifycheckback">
+              <div class="sigur">Esti sigur ca vrei sa suni la medic?</div>
+                <a class="ambulantada" onclick="callMedics()" href="#tel">Suna</a>
+                <a class="ambulantacancel" href="#servicii">Cancel</a>
+            </div>
+
+
+          </div>                   
+          
+        </div> 
+
+        <div id="verifycheckpol" class="verifycheckbg">
+          <div class="popup">
+
+
+            <div class="verifycheckback">
+              <div class="sigur">Esti sigur ca vrei sa suni la lspd?</div>
+                <a class="ambulantada" onclick="sunaPolice()" href="#tel">Suna</a>
+                <a class="ambulantacancel" href="#servicii">Cancel</a>
+            </div>
+
+
+          </div>                   
+          
+        </div> 
+
+        <div id="pay" class="bgpay">
+          <div class="popup">
+
+
+            <a class="inchide" href="#tel">X</a>
+
+            <button class="Show">Afiseaza soldul</button>
+            <button class="Hide" id="soldmana">Hide</button>
+             <button class="toggle">Afiseaza Soldul</button> -->
+            <!-- <div id="target" class="target">
+              <div id="soldmana" class="porto"></div>
+            </div> -->
+
+          <!-- </div>                   
+          
+        </div>  -->
+
+    <!-- </div> --> 
+    
+<!-- AICI SE TERMINA TELEFONU !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  -->
+
+		<div class="container" style = 'display:none;'>
+      <!-- <div class="textcoming" id = "text" style="font-family: fontcustom; font-size: 20px; font-weight: 800;"> </div> -->
+      <! <div class="alltab">
+        <div class="backgroundpanel2">
+      </div>
+      <! <div class="alltab">
+        <div class="backgroundimagine2">
+      </div>
+            <! <div class="alltab">
+        <div class="backgroundimagine">
+      </div>
+      <! <div class="alltab">
+        <div class="backgroundpanel">
+      </div>
+
+        <div class="vipaccount">
+            <h1 style="margin-top: 20%"><i class="fas fa-crown"></i></h1>
+            <h1 style="font-size: 24px; color: #d63636; font-weight: 800;">VIP</h1>
+            <h1 style="font-size: 19px;">ACCOUNT</h1>
+
+            <h1 id="vip" style="font-size: 14px; color:rgba(255, 255, 255, 0.397); text-transform: uppercase;"></h1>
+        </div>
+          <div class="task">
+            <h1 style="font-size: 24px; margin-top: 30%; color:#cc5fff63">CLICK</h1>
+            <h1 style="font-size: 22px;  font-weight: 800;margin-top: 105% "><a class="button" href="#popup3"><i class="fas fa-tasks" style="color:white;"></i></a></h1>
+            <h1 style="top: 240%; font-size: 22px; margin-top: 25%;">DAILY </h1>
+            <h1 style="font-size: 24px; margin-top: -9%;">TASKS</h1>
+            <img src="https://i.imgur.com/vZUwWbk.png" style="opacity: .3;">
+        </div>
+        <div class="profil">
+          <a class="profils" href="#profile"></a>
+            <h1 id="nume" style="font-size: 27px; margin-top: 12%; font-weight: 100">ANARCHYRP Community</h1>
+            <h1 style="font-size: 13px; margin-top: 0%; font-weight: 100; color: rgba(255, 255, 255, 0.672);"> <i class="fas fa-stream"></i> &nbsp CHARACTER STATISTICS</h1>
+        </div>
+        <div class="shop">
+        
+            <h1 style="font-size: 22px; color: #fff; font-weight: 800; margin-top: 14%; margin-left: -30%;"><a class="button" href="#popup2"><i class="fas fa-shopping-cart" style="color: white;"></i></a> &nbsp SHOP</h1>
+            <img src="https://i.imgur.com/xkbQKdq.png" style="margin-top: -30%; margin-left: 60%;">
+
+
+        </div>
+
+
+
+        <div class="bani">
+          <h1  style="font-size: 25px; margin-top: 7%; font-weight: 100; text-align: left; margin-left: 7%;">FA BANI, </h1>
+          <h1 style="font-size: 17px; margin-top: -3%; font-weight: 100; text-align: left;  margin-left: 7%;">DISTRANDU-TE ALATURI DE PRIETENII TAI</h1>
+          <h1 id="bank" style="font-size: 16px; color:rgba(255, 255, 255, 0.397); text-align: left; margin-left: 7%; margin-top: 7%;"></h1>
+          <h1 id="" style="font-size: 16px; color:rgba(255, 255, 255, 0.397); text-align: left; margin-left: 7%;  margin-top: -2%"></h6>
+          <img src="https://i.imgur.com/whGNmJb.png" style="margin-top: -57%; margin-left: 61%;">
+        </div>
+        <div class="organizatie">
+          <h1 style="margin-top: 20%; color: #2259a7e1"><i class="fas fa-suitcase"></i></h1>
+          <h1  style="font-size: 25px; font-weight: 100; margin-top: 20%;">MY</h1>
+          <h1 style="font-size: 17px; margin-top: -7%; font-weight: 100; ">ORGANIZATION</h1>
+          <h1 id="organizatie" style="font-size: 23px; text-transform: uppercase; margin-top: 30%; color: #2259a7e1; font-weight: bold;"></h1>
+          <img src="https://i.imgur.com/FpPpFED.png" style="margin-left: 50%; margin-top: -31%;">
+        </div>
+        <div class="job">
+          <h1  style="font-size: 25px; font-weight: 100; margin-top: 35%; text-align: left; margin-left: 7%;">MY</h1>
+          <h1 style="font-size: 17px; margin-top: -7%; font-weight: 100; text-align: left; margin-left: 7%; ">JOBS</h1>
+          <h1 style="font-size: 13px; margin-top: -3%; font-weight: 100; text-align: left; margin-left: 7%; color:rgba(255, 255, 255, 0.397);">VEZI LISTA CU JOB-URILE DE PE SERVER</h1>
+          <h1 style="margin-top: 4%; color: #ffffffe1; font-size: 17px; text-align: left; margin-left: 7%;"><a class="button" href="#popup1"><i class="fas fa-chevron-right" style="color: white; padding-top: 3px; padding-bottom: 3px; padding-right: 6px; padding-left: 8px; background: rgba(255, 0, 0, 0); border:2px solid white; border-radius: 50%"></i></a></h1>
+          <img src="https://i.imgur.com/kSumgJe.png" style="margin-top: -131%; margin-left: 20%;">
+              
+
+   
+
+        </div>
+
+
+        <div class="discord">
+          <h1  style="font-size: 25px; font-weight: 100; margin-top: 20%; text-align: left; margin-left: 7%;">DISCORD</h1>
+          <h1 style="font-size: 13px;  font-weight: 100; text-align: left; margin-left: 7%; color:rgba(255, 255, 255, 0.397);">INTRA PE DISCORD.IO/ANARCHYROMRP</h1>
+          <h1 style="font-size: 13px; margin-top: -3%; font-weight: 100; text-align: left; margin-left: 7%; color:rgba(255, 255, 255, 0.397);">PENTRU MAI MULTE INFORMATII</h1>
+          <img src="" style="margin-top: 31%; margin-left: 20%;">
+        </div>
+        <div class="panel" >
+          <h1  style="font-size: 25px; font-weight: 100; margin-top: 10%; text-align: center; color: white;">PANEL</h1>
+          <h1 style="font-size: 13px;  font-weight: 100; color:rgba(255, 255, 255, 0.397);">COLECTEAZA-TI REWARD-UL ZILNIC</h1>
+          <h1 style="font-size: 13px;  font-weight: 100; margin-top: -3%; color:rgba(255, 255, 255, 0.397);">IN VALOARE DE 1-5 DIAMANTE</h1>
+          <h1 style="font-size: 13px;  font-weight: 100; margin-top: 10%; color:rgba(255, 255, 255, 0.397);">RECLAMATII, TICKETE SUPPORT, DAILY BONUS, CERERE UNBAN</h1>
+          <h1  style="font-size: 18px; font-weight: 100; margin-top: 25%; text-align: center; color: white;">PANEL.ANARCHY.RO</h1>
+
+          <h1><i class="fas fa-arrow-down" style="color: rgb(7, 255, 7); font-size: 25px; margin-top: -25%"></i></h1>
+
+        </div>
+        <div class="nuj">
+          <h1><i class="fas fa-bolt" style="color: rgb(7, 255, 7); margin-top: 105%; font-size: 30px;"></i></h1>
+          <h1 style="top: 240%; font-size: 22px; margin-top: 35%; color: rgb(199, 169, 0);"> ATENTIE </h1>
+          <h1><i class="fas fa-biohazard" style="color: rgb(199, 169, 0); font-size: 22px; margin-left: -55%; margin-top: -20%;"></i></h1>
+          <h1><i class="fas fa-biohazard" style="color: rgb(199, 169, 0); font-size: 20px; margin-left: 55%; margin-top: -25%;"></i></h1>
+          <!-- <h1 style="top: 240%; font-size: 22px; margin-top: 15%;"> ATENTIE </h1> -->
+          <h1 style="font-size: 22px; margin-top: -9%;"> ACEST MENIU SE INCHIDE AUTOMAT </h1>
+          <h1 style="font-size: 22px; margin-top: -7%;"> DUPA CE APESI ESC </h1>
+          <img src="https://i.imgur.com/vZUwWbk.png" style="opacity: .3;">
+        </div>
+        <div class="suport">
+          <h1 style=" font-size: 19px; margin-top: 2.7%; margin-left: -10%" >DACA AVETI O PROBLEMA LEGATA DE GAMEPLAY, NU EZITATI SA CONTACTATI UN DEVELOPER</h1>
+          <h1><i class="fab fa-codepen" style="color: white; font-size: 22px; margin-left: -90%; margin-top: -3.5%;"></i></h1>
+          <h1 style="margin-top: 4%; color: #ffffffe1; font-size: 22px; text-align: left; margin-top: -4.7%; margin-left: 95.5%"><a class="button" href="#popup3"><i class="fas fa-chevron-right" style="color: white;"></i></a></h1>
+        </div>
+    </div>
+
+      <div id="popup1" class="overlay">
+        <div class="popup">
+
+          <a class="close" href="#"><i class="fas fa-chevron-left"></i> &nbsp INAPOI </a>
+
+          <div class="jobs" style="width: 80%;">
+            <!-- <div class="bus">
+              <h1 style=" font-size: 20px; margin-top: 4%; margin-left: 15%; text-align: left;" >Bus Driver</h1>
+              <h1 style=" font-size: 16px; margin-top: -2%; margin-left: 15%; text-align: left; font-weight: bolder; background-color: rgba(255, 255, 255, 0.39); width: 22%; padding: 4px; letter-spacing: 0px;" >ORE NECESARE: 0</h1>
+              <h1><i class="fas fa-bus" style="color: white; font-size: 35px; margin-left: -85%; margin-top: -11%;"></i></h1>
+            </div> -->
+
+            <div class="fan">
+              <h1 style=" font-size: 20px; margin-top: 4%; margin-left: 15%; text-align: left;" >Fan Curier</h1>
+              <h1 style=" font-size: 16px; margin-top: -2%; margin-left: 15%; text-align: left; font-weight: bolder; background-color: rgba(255, 255, 255, 0.39); width: 22%; padding: 4px; letter-spacing: 0px;" >ORE NECESARE: 0</h1>
+              <h1><i class="fas fa-truck-moving" style="color: white; font-size: 35px; margin-left: -85%; margin-top: -11%;"></i></h1>
+              <h1 style=" font-size: 16px; margin-top: -13.5%; margin-left: 55%; text-align: center; color: rgb(17, 17, 17); background-color: rgb(7, 255, 7); border-radius: 200px; padding: 10px; width: 20%;" > BEST PAY </span> </h1>
+            </div>
+            
+            <div class="food">
+              <h1 style=" font-size: 20px; margin-top: 4%; margin-left: 15%; text-align: left;" >McDonald`s</h1>
+              <h1 style=" font-size: 16px; margin-top: -2%; margin-left: 15%; text-align: left; font-weight: bolder; background-color: rgba(255, 255, 255, 0.39); width: 22%; padding: 4px; letter-spacing: 0px;" >ORE NECESARE: 0</h1>
+              <h1><i class="fas fa-hotdog" style="color: white; font-size: 35px; margin-left: -85%; margin-top: -11%;"></i></h1>
+            </div>
+            
+            <div class="trucker1">
+              <h1 style=" font-size: 20px; margin-top: 4%; margin-left: 15%; text-align: left;" >Tirist</h1>
+              <h1 style=" font-size: 16px; margin-top: -2%; margin-left: 15%; text-align: left; font-weight: bolder; background-color: rgba(255, 255, 255, 0.39); width: 23%; padding: 4px; letter-spacing: 0px;" >ORE NECESARE: 0</h1>
+              <h1><i class="fas fa-truck-loading" style="color: white; font-size: 35px; margin-left: -85%; margin-top: -11%;"></i></h1>
+            </div>
+            
+            <div class="trucker2">
+              <h1 style=" font-size: 20px; margin-top: 4%; margin-left: 15%; text-align: left;" >Gunoier</h1>
+              <h1 style=" font-size: 16px; margin-top: -2%; margin-left: 15%; text-align: left; font-weight: bolder; background-color: rgba(255, 255, 255, 0.39); width: 23%; padding: 4px; letter-spacing: 0px;" >ORE NECESARE: 0</h1>
+              <h1><i class="fas fa-truck-loading" style="color: white; font-size: 35px; margin-left: -85%; margin-top: -11%;"></i></h1>
+              <h1 style=" font-size: 16px; margin-top: -13.5%; margin-left: 55%; text-align: center; color: rgb(17, 17, 17); background-color: rgb(7, 255, 7); border-radius: 200px; padding: 10px; width: 20%;" > BEST PAY </span> </h1>
+            </div>
+            
+            <div class="trucker3">
+              <h1 style=" font-size: 20px; margin-top: 4%; margin-left: 15%; text-align: left;" >Autobuz</h1>
+              <h1 style=" font-size: 16px; margin-top: -2%; margin-left: 15%; text-align: left; font-weight: bolder; background-color: rgba(255, 255, 255, 0.39); width: 23%; padding: 4px; letter-spacing: 0px;" >ORE NECESARE: 0</h1>
+              <h1><i class="fas fa-truck-loading" style="color: white; font-size: 35px; margin-left: -85%; margin-top: -11%;"></i></h1>
+            </div>
+            
+            <div class="pescar">
+              <h1 style=" font-size: 20px; margin-top: 4%; margin-left: 15%; text-align: left;" >Pescar</h1>
+              <h1 style=" font-size: 16px; margin-top: -2%; margin-left: 15%; text-align: left; font-weight: bolder; background-color: rgba(255, 255, 255, 0.39); width: 23%; padding: 4px; letter-spacing: 0px;" >ORE NECESARE: 0</h1>
+              <h1><i class="fas fa-fish" style="color: white; font-size: 35px; margin-left: -85%; margin-top: -11%;"></i></h1>
+            </div>     
+            
+            <!-- <div class="padurar">
+              <h1 style=" font-size: 20px; margin-top: 4%; margin-left: 15%; text-align: left;" >Padurar</h1>
+              <h1 style=" font-size: 16px; margin-top: -2%; margin-left: 15%; text-align: left; font-weight: bolder; background-color: rgba(255, 255, 255, 0.39); width: 23%; padding: 4px; letter-spacing: 0px;" >ORE NECESARE: 50</h1>
+              <h1><i class="fas fa-tree" style="color: white; font-size: 35px; margin-left: -85%; margin-top: -11%;"></i></h1>
+            </div>  -->
+
+            <div class="miner">
+              <h1 style=" font-size: 20px; margin-top: 4%; margin-left: 15%; text-align: left;" >Miner</h1>
+              <h1 style=" font-size: 16px; margin-top: -2%; margin-left: 15%; text-align: left; font-weight: bolder; background-color: rgba(255, 255, 255, 0.39); width: 23%; padding: 4px; letter-spacing: 0px;" >ORE NECESARE: 0</h1>
+              <h1><i class="fas fa-hand-rock" style="color: white; font-size: 35px; margin-left: -85%; margin-top: -11%;"></i></h1>
+              <h1 style=" font-size: 16px; margin-top: -13.5%; margin-left: 55%; text-align: center; color: rgb(17, 17, 17); background-color: rgb(7, 255, 7); border-radius: 200px; padding: 10px; width: 20%; font-weight: bolder;" > BEST PAY </span> </h1>
+            </div>   
+          </div>        
+
+          <div class="earnmoney">
+            <h1 style=" font-size: 28px; margin-top: 24%; margin-left: 15%; text-align: left; margin-left: 20%;" >VREI SA CASTIGI</h1>
+            <h1 style=" font-size: 28px; margin-top: -6.5%; margin-left: 15%; text-align: left; margin-left: 20%; font-weight: bolder; " >MAI MULT?</h1>
+            <h1><i class="far fa-credit-card" style="color: white; font-size: 26px; margin-left: -78%; margin-top: -14.4%;"></i></h1>
+            <h1 style=" font-size: 16px; margin-top: -2%; color:rgba(255, 255, 255, 0.753);  text-align: left; margin-left: 8%; width: 80%;" >INCEARCA ALTE ALTERNATIVE: ORGNAIZATII, ACTIVITATI, EVENTE SI ALTELE.</h1>
+            <img src="https://i.imgur.com/nYJx3eI.png" style="margin-top: 30%; margin-left: -18%;">
+          </div>   
+        </div>   
+
+
+        
+        <div class="lista">
+          <h1 style=" font-size: 35px; margin-top: 29%; text-align: left" >INFORMATII JOBURI</h1>
+          <h1 style=" font-size: 20px; margin-top: 2%; color:rgba(255, 255, 255, 0.966);  text-align:left; width: 170%; font-weight: lighter;" >Daca vrei sa evoluezi in orasul nostru va trebui sa muncesti din greu. Alaturi ai lista cu joburile disponibile, unele necesita si anumita experienta.</h1>
+          <br>
+          <hr>
+          <br>
+          <h1 style=" font-size: 20px; margin-left: 15%; text-align: center; color: rgb(17, 17, 17); background-color: rgb(7, 255, 7); border-radius: 200px; padding: 10px; width: 140%; font-weight: bolder;" >PENSRU A VEDEA MAI MULTE JOBURI SCRIE /jobspal</span> </h1>
+        </div>   
+      </div>  
+
+
+        </div>
+
+  
+          <div id="popup3" class="overlay">
+            <div class="popup">
+    
+              <a class="close" href="#"><i class="fas fa-chevron-left"></i> &nbsp INAPOI </a>
+              <div class="developer">
+                <h1 style=" font-size: 20px; margin-top: 4%; margin-left: 15%; text-align: left;" >DEVELOPER & OWNER</h1>
+                <h1 style=" font-size: 16px; margin-top: -2%; margin-left: 15%; text-align: left; font-weight: bolder; background-color: rgba(255, 255, 255, 0.39); width: 10%; padding: 4px; letter-spacing: 0px;" >LEMONJUICE</h1>
+                <h1><i class="fas fa-code" style="color: white; font-size: 35px; margin-left: -85%; margin-top: -11%;"></i></h1>
+                <h1 style=" font-size: 16px; margin-top: -13.5%; margin-left: 69%; text-align: center; color: rgb(0, 0, 0); background-color: #fff30b93; border-radius: 200px; padding: 10px; width: 20%; font-weight: bolder;" >#0694 </span> </h1>
+              </div>
+
+              <div class="dakor">
+                <h1 style=" font-size: 20px; margin-top: 4%; margin-left: 15%; text-align: left;" >OWNER</h1>
+                <h1 style=" font-size: 16px; margin-top: -2%; margin-left: 15%; text-align: left; font-weight: bolder; background-color: rgba(255, 255, 255, 0.39); width: 8%; padding: 4px; letter-spacing: 0px;" >BOBONETE</h1>
+                <h1><i class="fas fa-crown" style="color: white; font-size: 35px; margin-left: -85%; margin-top: -11%;"></i></h1>
+                <h1 style=" font-size: 16px; margin-top: -13.5%; margin-left: 69%; text-align: center; color: rgb(0, 0, 0); background-color: #fff30b93; border-radius: 200px; padding: 10px; width: 20%; font-weight: bolder;" >#3438 </span> </h1>
+              </div> 
+
+
+              <div class="discordseason">
+                <h1 style=" font-size: 20px; margin-top: 4%; margin-left: 15%; text-align: left;" >DISCORD SERVER</h1>
+                <h1 style=" font-size: 16px; margin-top: -2%; margin-left: 15%; text-align: left; font-weight: bolder; background-color: rgba(255, 255, 255, 0.39); width: 26%; padding: 4px; letter-spacing: 0px;" >DISCORD.IO/ANARCHYROMRP</h1>
+                <h1><i class="fas fa-link" style="color: white; font-size: 35px; margin-left: -85%; margin-top: -11%;"></i></h1>
+                <!-- <h1 style=" font-size: 16px; margin-top: -13.5%; margin-left: 69%; text-align: center; color: rgb(0, 0, 0); background-color: #fff30b93; border-radius: 200px; padding: 10px; width: 20%; font-weight: bolder;" >#8740 </span> </h1> -->
+              </div> 
+
+            </div>    
+    
+    
+            </div>
+            </div>
+
+            <div id="profile" class="overlayprofile">
+              <div class="popup">
+      
+                <a class="close" href="#"><i class="fas fa-chevron-left"></i> &nbsp INAPOI </a>
+      
+                <div class="acc">
+                  <h1 style="font-size:30px;"> ACCOUNT <span id="ids" style="color: rgb(7, 255, 7)"></span> </h1>
+                  <h1 style="font-size:30px; color: rgb(7, 255, 7); width: 10%; margin-left: 25%;"> ORE <span id="ore" style="color: #fff; font-size: 24px;"></span> </h1>
+                  <h1 style="font-size:15px; color: #fff; width: 20%; margin-top: -16%; margin-left: 60%; text-align:left "> VIP-STATUS <span id="vips" style="color: rgba(255, 255, 255, 0.315); text-align: left; font-size: 22px; text-transform: uppercase;"></span> </h1>
+                
+                </div>   
+              </div>                   
+      
+              <div class="organizaties">
+                <h1 style="font-size:15px; text-align: left; margin-top: 4%; letter-spacing: 0.2px; margin-left: 6%; color: rgba(255, 255, 255,  0.342);"> ORGANIZATIE </h1>
+                <h1 id="organizaties" style="font-size:22px; text-align: left; text-transform: uppercase; margin-top: 42%; letter-spacing: 0.2px; margin-left: 6%; color: rgba(255, 255, 255,  0.342);"><span id="onlines"></span> </h1>
+                <h1><i class="far fa-smile" style="color: rgba(255, 255, 255, 0.342); font-size: 26px; margin-left: 78%; margin-top: -64.4%;"></i></h1>
+              </div>  
+               
+
+              <div class="grupa">
+                <h1 style="font-size:15px; text-align: left; margin-top: 4%; letter-spacing: 0.2px; margin-left: 6%; color: rgba(255, 255, 255,  0.342);"> JOB </h1>
+                <h1 id="group" style="font-size:22px; text-align: left; text-transform: uppercase; margin-top: 42%; letter-spacing: 0.2px; margin-left: 6%; color: rgba(255, 255, 255, 0.342);">Organizatie </h1>
+                <h1><i class="fas fa-briefcase" style="color: rgba(255, 255, 255, 0.342); font-size: 26px; margin-left: 78%; margin-top: -64.4%;"></i></h1>
+              </div> 
+
+            <div class="listastanga">
+              <div class="stanga">
+                <h1 style=" font-size: 13px; margin-top: 4%; color: rgba(255, 255, 255, 0.51); margin-left: 15%; text-align: left;" > COINS</h1>
+                <h1 style=" font-size: 18px; margin-top: -2.5%; margin-left: 15%; text-align: left; font-weight: bolder; color: rgb(255, 255, 255);  letter-spacing: 0px;" >0 PREMIUM POINTS</h1>
+                <h1><i class="fas fa-piggy-bank" style="color: rgb(7, 255, 7); font-size: 25px; margin-left: -88%; margin-top: -10%;"></i></h1>
+                <div class="butonadd"> ADD FUNDS </div>
+                <a class="butonadd" href="#popup2" style="background: none; border: none; width: 15%; height: 7%; "></a>
+              </div>
+              <br>
+              <div class="stanga">
+                <h1 style=" font-size: 13px; margin-top: 4%; color: rgba(255, 255, 255, 0.51); margin-left: 15%; text-align: left;" > NUMAR DE TELEFON</h1>
+                <h1 id="number" style=" font-size: 18px; margin-top: -2.5%; margin-left: 15%; text-align: left; font-weight: bolder; color: rgb(255, 255, 255);  letter-spacing: 0px;" >0770987612</h1>
+                <h1><i class="fas fa-phone-alt" style="color: #ffffff; font-size: 25px; margin-left: -88%; margin-top: -10%;"></i></h1>
+                
+              </div>
+              <br>
+              <div class="stanga">
+                <h1 style=" font-size: 13px; margin-top: 4%; color: rgba(255, 255, 255, 0.51); margin-left: 15%; text-align: left;" > NUME SI PRENUME</h1>
+                <h1 id="nameIG" style=" font-size: 18px; margin-top: -2.5%; margin-left: 15%; text-align: left; font-weight: bolder; color: rgb(255, 255, 255);  letter-spacing: 0px;" >MIRCEA BRAVO</h1>
+                <h1><i class="fas fa-id-card-alt" style="color: #fff; font-size: 25px; margin-left: -88%; margin-top: -10%;"></i></h1>
+              </div>
+              <br>
+              <div class="stanga">
+                <h1 style=" font-size: 13px; margin-top: 4%; color: rgba(255, 255, 255, 0.51); margin-left: 15%; text-align: left;" > STAFF ACCOUNT</h1>
+                <h1 id="staff" style=" font-size: 18px; margin-top: -2.5%; margin-left: 15%; text-align: left; font-weight: bolder; color: rgb(255, 255, 255);  letter-spacing: 0px; text-transform: uppercase;" >FALSE</h1>
+                <h1><i class="fas fa-crown" style="color: #fff; font-size: 25px; margin-left: -88%; margin-top: -10%;"></i></h1>
+                
+              </div>  
+              <br>          
+              <div class="stanga">
+                <h1 style=" font-size: 13px; margin-top: 4%; color: rgba(255, 255, 255, 0.51); margin-left: 15%; text-align: left;" > COINS</h1>
+                <h1 style=" font-size: 18px; margin-top: -2.5%; margin-left: 15%; text-align: left; font-weight: bolder; color: rgb(255, 255, 255);  letter-spacing: 0px;" >0 PREMIUM POINTS</h1>
+                <h1><i class="fas fa-piggy-bank" style="color: #fff; font-size: 25px; margin-left: -88%; margin-top: -10%;"></i></h1>
+              </div>
+              <br>              
+              <div class="stanga">
+                <h1 style=" font-size: 13px; margin-top: 4%; color: rgba(255, 255, 255, 0.51); margin-left: 15%; text-align: left;" > COINS</h1>
+                <h1 style=" font-size: 18px; margin-top: -2.5%; margin-left: 15%; text-align: left; font-weight: bolder; color: rgb(255, 255, 255);  letter-spacing: 0px;" >0 PREMIUM POINTS</h1>
+                <h1><i class="fas fa-piggy-bank" style="color: #fff; font-size: 25px; margin-left: -88%; margin-top: -10%;"></i></h1>                
+              </div>
+              <br>              
+              <div class="stanga">
+                <h1 style=" font-size: 13px; margin-top: 4%; color: rgba(255, 255, 255, 0.51); margin-left: 15%; text-align: left;" > COINS</h1>
+                <h1 style=" font-size: 18px; margin-top: -2.5%; margin-left: 15%; text-align: left; font-weight: bolder; color: rgb(255, 255, 255);  letter-spacing: 0px;" >0 PREMIUM POINTS</h1>
+                <h1><i class="fas fa-piggy-bank" style="color: #fff; font-size: 25px; margin-left: -88%; margin-top: -10%;"></i></h1>           
+              </div>
+            </div>  
+
+              </div>
+
+              <div id="popup2" class="overlayshop">
+                <div class="popup">
+        
+          <a class="close" href="#"><i class="fas fa-chevron-left"></i> &nbsp INAPOI </a>
+                
+                  <div class="allshop">
+                    <div class="bg"></div>
+                    <div class="shopname">
+                      <h1 style=" font-size: 41px; margin-top: 4%; color: rgb(255, 255, 255); text-align: left;" ><i class="fas fa-shopping-cart" style="color: #95c74d"></i> &nbsp SHOP</h1> 
+                    </div>
+                    <div class="shopbalance">
+                      <h1 style=" font-size: 18px; margin-top: 4%; color: rgba(255, 255, 255, 0.51); margin-left: 15%; text-align: left;" > BALANTA</h1>
+                      <h1 id="diamante" style=" font-size: 29px; margin-top: -0.2%; margin-left: 15%; text-align: left; font-weight: bolder; color: rgb(255, 255, 255);  letter-spacing: 0px;" ><span id="diamante-value">0</span>  DIAMANTE</h1>
+                    </div>
+                    <div class="carshop">
+                      <h1 style=" font-size: 43px; margin-top: 7%; color: rgb(255, 255, 255); margin-left: 8%; font-weight: bolder; text-align: left;" > MASINI</h1>
+                      <h1 style=" font-size: 41px; margin-top: -6%; margin-left: 8%; text-align: left; font-weight: lighter; color: rgba(255, 255, 255, 0.74);  letter-spacing: 0px;" >PERSONALIZATE</h1>
+
+                     <img src="https://i.imgur.com/qnFE894.png" style="margin-left: 3%; margin-top: 5%;">
+                  </div>
+                  <div class="vipsubs">
+                    <a class="vipbg" href="#vipbg"></a>
+                    <h1 style=" font-size: 39px; margin-top: 9%; color: rgb(255, 255, 255); margin-left: 12%; font-weight: bolder; text-align: left;" > VIP</h1>
+                    <h1 style=" font-size: 37px; margin-top: -7%; margin-left: 12%; text-align: left; font-weight: lighter; color: rgba(255, 255, 255, 0.74);  letter-spacing: 0px;" >SUBSCRIPTION</h1>
+                    <img src="https://i.imgur.com/2w38Hmf.png" style="margin-left: 73%; margin-top: -30.7%;">
+                </div>        
+                <div class="tos">
+                  <h1 style=" font-size: 39px; margin-top: 13%; color: rgb(255, 255, 255); margin-left: 22%; font-weight: bolder; text-align: left;" > OUR <span style="color: rgba(255, 255, 255, 0.74);;"> TOS</span></h1>
+                  <h1 style="background: none;   margin-left: 18%; margin-top: -4%; width: 190px;  height: 19px; border-radius: 9999px; padding-top: 5px; padding-bottom: 5px; border: 2px solid #ffffff52;"> CITESTE-l CU ATENTIE </h1>
+                  <div class="listatos">
+                    <h1 style=" font-size: 16px; color: rgb(255, 255, 255); margin-left: 12%; font-weight: bolder; text-align: left; font-weight: lighter; letter-spacing: 0px;" ><span style="color: rgb(7, 255, 7); font-size: 15px;"> • </span>&nbsp DACA VREI SA VEZI JOBURILE NOASTRE INTERSANTE SCRIE /jobspal</h1>
+                    <h1 style=" font-size: 16px; color: rgb(255, 255, 255); margin-left: 12%; font-weight: bolder; text-align: left; font-weight: lighter; letter-spacing: 0px;" ><span style="color: rgb(7, 255, 7); font-size: 15px;"> • </span>&nbsp APLICA INTR-O FACTIUNE LEGALA</h1>
+                    <h1 style=" font-size: 16px; color: rgb(255, 255, 255); margin-left: 12%; font-weight: bolder; text-align: left; font-weight: lighter; letter-spacing: 0px;" ><span style="color: rgb(7, 255, 7); font-size: 15px;"> • </span>&nbsp CA SA VEZI PLAYERI APASA TASTA HOME</h1>
+                    <h1 style=" font-size: 16px; color: rgb(255, 255, 255); margin-left: 12%; font-weight: bolder; text-align: left; font-weight: lighter; letter-spacing: 0px;" ><span style="color: rgb(7, 255, 7); font-size: 15px;"> • </span>&nbsp PENTRU TELEFON APASTA TASTA L</h1>
+                    <h1 style=" font-size: 16px; color: rgb(255, 255, 255); margin-left: 12%; font-weight: bolder; text-align: left; font-weight: lighter; letter-spacing: 0px;" ><span style="color: rgb(7, 255, 7); font-size: 15px;"> • </span>&nbsp PENTRU REGULAMENT APASTA TASTA F1</h1>
+                    <h1 style=" font-size: 16px; color: rgb(255, 255, 255); margin-left: 12%; font-weight: bolder; text-align: left; font-weight: lighter; letter-spacing: 0px;" ><span style="color: rgb(7, 255, 7); font-size: 15px;"> • </span>&nbsp PENTRU EMOTES APASA F2</h1>
+                    <h1 style=" font-size: 16px; color: rgb(255, 255, 255); margin-left: 12%; font-weight: bolder; text-align: left; font-weight: lighter; letter-spacing: 0px;" ><span style="color: rgb(7, 255, 7); font-size: 15px;"> • </span>&nbsp PENTRU A VEDEA TOTE REPREZENTANTELE DE MASNI SCRIE /GPS</h1>
+                    <h1 style=" font-size: 16px; color: rgb(255, 255, 255); margin-left: 12%; font-weight: bolder; text-align: left; font-weight: lighter; letter-spacing: 0px;" ><span style="color: rgb(7, 255, 7); font-size: 15px;"> • </span>&nbsp PENTRU A VEDEA PENALIZARILE TALE APASA F6</h1>
+                    <h1 style=" font-size: 16px; color: rgb(255, 255, 255); margin-left: 12%; font-weight: bolder; text-align: left; font-weight: lighter; letter-spacing: 0px;" ><span style="color: rgb(7, 255, 7); font-size: 15px;"> • </span>&nbsp DEVELOPERUL SERVERULUI ESTE LEMONJUICE#0694</h1>
+                    <h1 style=" font-size: 16px; color: rgb(255, 255, 255); margin-left: 12%; font-weight: bolder; text-align: left; font-weight: lighter; letter-spacing: 0px;" ><span style="color: rgb(7, 255, 7); font-size: 15px;"> • </span>&nbsp STAFF-UL ESTE UNUL MATUR SI FOARTE PREGATIT PENTRU ORICE SITUATIE</h1>
+                    <h1 style=" font-size: 16px; color: rgb(255, 255, 255); margin-left: 12%; font-weight: bolder; text-align: left; font-weight: lighter; letter-spacing: 0px;" ><span style="color: rgb(7, 255, 7); font-size: 15px;"> • </span>&nbsp DACA VREI SA FACI UN TICKET APASA K[ ADMIN menu /TICKET]</h1>
+                    <h1 style=" font-size: 16px; color: rgb(255, 255, 255); margin-left: 12%; font-weight: bolder; text-align: left; font-weight: lighter; letter-spacing: 0px;" ><span style="color: rgb(7, 255, 7); font-size: 15px;"> • </span>&nbsp ROLEPLAY-UL ESTE DE TIP HARD</h1>
+                    <h1 style=" font-size: 16px; color: rgb(255, 255, 255); margin-left: 12%; font-weight: bolder; text-align: left; font-weight: lighter; letter-spacing: 0px;" ><span style="color: rgb(7, 255, 7); font-size: 15px;"> • </span>&nbsp ECONOMIE REALA</h1>
+                  </div>
+              </div>   
+              
+              <div class="shopitem">
+                <h1 style=" font-size: 39px; margin-top: 9%; color: rgb(255, 255, 255); margin-left: 12%; font-weight: bolder; text-align: left;" > SHOP</h1>
+                <h1 style=" font-size: 37px; margin-top: -7%; margin-left: 12%; text-align: left; font-weight: lighter; color: rgba(255, 255, 255, 0.74);  letter-spacing: 0px;" >CUSTOM</h1>
+            </div> 
+
+            <div class="shopbani">
+              <h1 style=" font-size: 30px; margin-top: 18%; color: rgba(255, 255, 255, 0.74);   font-weight: bolder; text-align: center;" > CUMPARA</h1>
+              <h1 style=" font-size: 27px; margin-top: -13%;  text-align: center; font-weight: lighter; color: rgb(255, 255, 255);  letter-spacing: 0px;" >BANI</h1>
+
+              <img src="https://i.imgur.com/qcgOVEk.png" style="margin-left: 7%; margin-top: 16%;">
+          </div> 
+
+          <div class="shoppack">
+            <h1 style=" font-size: 38px; margin-top: 6%; margin-left: 12%;color: rgba(255, 255, 255, 0.74);   font-weight: bolder; text-align: left;" > PACK OF THE</h1>
+            <h1 style=" font-size: 35px; margin-top: -6%; margin-left: 12%; text-align: left; font-weight: lighter; color: rgb(255, 255, 255);  letter-spacing: 0px;" >BEGINNER</h1>
+            <h1 style=" font-size: 19px; margin-top: -3%; margin-left: 12%; text-align: left; font-weight: lighter; color: rgb(255, 255, 255);  letter-spacing: 0px;" ><i class="far fa-clock" style="color: #95c74d"></i>&nbsp EXPIRE SOON</h1>
+
+           
+            <h1 style="background: none;   margin-left: 10%; margin-top: 12%; width: 130px;  height: 19px; border-radius: 9999px; padding-top: 5px; padding-bottom: 5px; border: 2px solid #ffffff52;"> 100 DIAMANTE </h1>
+            
+            <div class="buton">
+              <a class="button" href="#pack" style="	color: #fff; outline: none; text-decoration: none;"> CUMPARA</a>     
+              </div>          
+
+          </div>       
+                                
+          
+
+          <div class="shopbp">
+            <h1 style=" font-size: 38px; margin-top: 6%; margin-left: 12%;color: rgba(255, 255, 255);   font-weight: bolder; text-align: left;" > BACKPACK</h1>
+            <h1 style=" font-size: 26px; margin-top: 1%; margin-left: 12%; text-align: left; font-weight: lighter; color: rgb(255, 255, 255);  letter-spacing: 0px;" >40 KG &nbsp <i class="fas fa-arrow-right" style="font-size: 18px;"></i> &nbsp 140 KG</h1>
+            <h1 style=" font-size: 17px; margin-top: -4%; margin-left: 12%; text-align: left; font-weight: lighter; color: rgba(255, 255, 255, 0.74);  letter-spacing: 0px;" >DE LA 40 KG PANA LA 140 KG</h1>
+            <h1 style="background: none;   margin-left: 1.6%; font-size: 14px;  margin-top: 12%; width: 460px;  height: 19px; border-radius: 9999px; padding-top: 5px; padding-bottom: 5px; border: 2px solid #ffffff52;"> UPGRADEAZA-TI BACKPACK-UL PENTRU MAI MULT LOC DE DEPOZITARE </h1>
+            <img src="https://i.imgur.com/yluCDZs.png" style="margin-top: -60%; margin-left: 60%; transform: rotate(-20deg);">
+          </div> 
+
+                </div>
+                </div>
+
+
+                
+              </div>    
+   
+
+
+              <div id="pack" class="packoverlay">
+                <div class="popup">
+
+        
+                  <div class="acc">
+                    <h1 style="font-size:30px; color: #ffffff; margin-top: 27%;"> PACK OF THE BEGGINER</h1>
+                  </div>   
+    
+                  <div class="beg">
+                    <div class="continut">
+                      <h1 style="font-size:19px; color: #ffffff; margin-top: -1%; background: #ffffff19; width: 42%; border-radius: 5px; padding: 20px; text-align: left; margin-left: 51%;"> ACCES LA SPONSOR MENU </h1>
+                    </div> 
+                </div>  
+
+                  <a class="butonclose" href="#popup2">CLOSE</a>
+                  <a class="butonbuy" onclick="cumparaPack()">BUY</a>
+
+                </div>                   
+                
+              </div>               
+
+          
+              <div id="vipbg" class="vipoverlay">
+                <div class="popup">
+        
+                  <a class="close" href="#"><i class="fas fa-chevron-left"></i> &nbsp INAPOI </a>
+        
+                  <div class="acc">
+                    <h1 style="font-size:30px; color: #ffffff; margin-top: 27%;"> VIP SUBSCRIPTION</h1>
+                  </div>   
+    
+                  <div class="beg">
+                    <div class="continut">
+                      <h1 style="font-size:19px; color: #ffffff; margin-top: -1%; background: #ffffff19; width: 42%; border-radius: 5px; padding: 20px; text-align: left; margin-left: 51%;">VIP BRONZE <div class="butondiamante">  100 DIAMANTE  </div> <a class="butondiamante" href="#bronze"></a><h1>
+
+                    
+                      <h1 style="font-size:19px; color: #ffffff; margin-top: -1%; background: #ffffff19; width: 42%; border-radius: 5px; padding: 20px; text-align: left; margin-left: 51%;">VIP SILVER <div class="butondiamante" style="margin-top: 10.5%;">  200 DIAMANTE  </div> <a class="butondiamante" href="#silver" style="margin-top: 10.5%;"></a><h1></h1>
+                      <h1 style="font-size:19px; color: #ffffff; margin-top: -1%; background: #ffffff19; width: 42%; border-radius: 5px; padding: 20px; text-align: left; margin-left: 51%;">VIP GOLD <div class="butondiamante" style="margin-top: 21%;">  300 DIAMANTE  </div> <a class="butondiamante" href="#gold" style="margin-top: 21%;"></a><h1></h1>
+                      <h1 style="font-size:19px; color: #ffffff; margin-top: -1%; background: #ffffff19; width: 42%; border-radius: 5px; padding: 20px; text-align: left; margin-left: 51%;">VIP DIAMANT <div class="butondiamante" style="margin-top: 31%;">  400 DIAMANTE  </div> <a class="butondiamante" href="#diamond" style="margin-top: 31%;"></a><h1></h1>
+                      <h1 style="font-size:19px; color: #ffffff; margin-top: -1%; background: #ffffff19; width: 42%; border-radius: 5px; padding: 20px; text-align: left; margin-left: 51%;">VIP EMERALD <div class="butondiamante" style="margin-top: 41.5%;">  500 DIAMANTE  </div> <a class="butondiamante" href="#emerald" style="margin-top: 41.5%;"></a><h1></h1>
+
+                    </div> 
+                  </div>
+
+                  <a class="butonclose" href="#popup2" style="margin-left: -2.5%">CLOSE</a>
+
+                  </div>   
+                </div>   
+
+        
+                <div id="bronze" class="bronzeoverlay">
+                  <div class="popup">
+          
+
+          
+                    <div class="acc">
+                      <h1 style="font-size:30px; color: #ffffff; margin-top: 27%;"> BRONZE SUBSCRIPTION</h1>
+                    </div>   
+      
+                    <div class="beg">
+                      <div class="continut">
+                        <h1 style="font-size:19px; color: #ffffff; margin-top: -1%; background: #ffffff19; width: 42%; border-radius: 5px; padding: 20px; text-align: left; margin-left: 51%;">Grad VIP pe server in CHAT + SCOREBOARD</h1>
+                        <h1 style="font-size:19px; color: #ffffff; margin-top: -1%; background: #ffffff19; width: 42%; border-radius: 5px; padding: 20px; text-align: left; margin-left: 51%;">Grad VIP pe Discord + Acces la camera VIP</h1>
+                        <h1 style="font-size:19px; color: #ffffff; margin-top: -1%; background: #ffffff19; width: 42%; border-radius: 5px; padding: 20px; text-align: left; margin-left: 51%;"> Acces la garaj privat de VIP care contine masinile:    
+
+
+                          Mini cooper,
+                          Mercedes S65,
+
+                        </h1>
+                        <h1 style="font-size:19px; color: #ffffff; margin-top: -1%; background: #ffffff19; width: 42%; border-radius: 5px; padding: 20px; text-align: left; margin-left: 51%;"> Bani: 5.000$</h1>
+                        <h1 style="font-size:19px; color: #ffffff; margin-top: -1%; background: #ffffff19; width: 42%; border-radius: 5px; padding: 20px; text-align: left; margin-left: 51%;"> Payday la fiecare 30 minute: 3.000$</h1>
+                      </div> 
+                  </div>  
+  
+                    <a class="butonclose" href="#vipbg">CLOSE</a>
+                    <a class="butonbuy" onclick="cumparaBronze()">BUY</a>
+  
+                  </div>                   
+                  
+                </div>
+                
+                <div id="silver" class="silveroverlay">
+                  <div class="popup">
+          
+                    <div class="acc">
+                      <h1 style="font-size:30px; color: #ffffff; margin-top: 27%;"> Silver SUBSCRIPTION</h1>
+                    </div>   
+      
+                    <div class="beg">
+                      <div class="continut">
+                        <<h1 style="font-size:19px; color: #ffffff; margin-top: -1%; background: #ffffff19; width: 42%; border-radius: 5px; padding: 20px; text-align: left; margin-left: 51%;">Grad VIP pe server in CHAT + SCOREBOARD</h1>
+                        <h1 style="font-size:19px; color: #ffffff; margin-top: -1%; background: #ffffff19; width: 42%; border-radius: 5px; padding: 20px; text-align: left; margin-left: 51%;">Grad VIP pe Discord + Acces la camera VIP</h1>
+                        <h1 style="font-size:19px; color: #ffffff; margin-top: -1%; background: #ffffff19; width: 42%; border-radius: 5px; padding: 20px; text-align: left; margin-left: 51%;"> Acces la garaj privat de VIP care contine masinile:    
+
+
+
+                          Masini VIP BRONZE +
+                           
+                          Mercedes S65,
+                          Mercedes MB300,
+                          Mustang RTR 2018,
+                          Mini Cooper</h1>
+                        <h1 style="font-size:19px; color: #ffffff; margin-top: -1%; background: #ffffff19; width: 42%; border-radius: 5px; padding: 20px; text-align: left; margin-left: 51%;"> Bani: 5.000$</h1>
+                        <h1 style="font-size:19px; color: #ffffff; margin-top: -1%; background: #ffffff19; width: 42%; border-radius: 5px; padding: 20px; text-align: left; margin-left: 51%;"> Payday la fiecare 30 minute: 3.000$</h1>
+                      </div> 
+                  </div>  
+  
+                    <a class="butonclose" href="#vipbg">CLOSE</a>
+                    <a class="butonbuy" onclick="cumparaSilver()">BUY</a>
+  
+                  </div>                   
+                  
+                </div> 
+
+                <div id="gold" class="goldoverlay">
+                  <div class="popup">
+          
+                    <div class="acc">
+                      <h1 style="font-size:30px; color: #ffffff; margin-top: 27%;"> GOLD SUBSCRIPTION</h1>
+                    </div>   
+      
+                    <div class="beg">
+                      <div class="continut">
+                        <h1 style="font-size:19px; color: #ffffff; margin-top: -1%; background: #ffffff19; width: 42%; border-radius: 5px; padding: 20px; text-align: left; margin-left: 51%;"> Grad VIP pe server in CHAT + SCOREBOARD</h1>
+                        <h1 style="font-size:19px; color: #ffffff; margin-top: -1%; background: #ffffff19; width: 42%; border-radius: 5px; padding: 20px; text-align: left; margin-left: 51%;"> Grad VIP pe Discord + Acces la camera VIP</h1>
+                        <h1 style="font-size:19px; color: #ffffff; margin-top: -1%; background: #ffffff19; width: 42%; border-radius: 5px; padding: 20px; text-align: left; margin-left: 51%;">  Acces la garaj privat de VIP care contine masinile:
+                          VIP BRONZE + VIP SILVER +
+                          
+                          Mercedes S65,
+                          Mercedes MB300,
+                          Mustang RTR 2018,
+                          Mini Cooper,
+                          Audi A8,
+                          BMW Alphinab7</h1>
+                        <h1 style="font-size:19px; color: #ffffff; margin-top: -1%; background: #ffffff19; width: 42%; border-radius: 5px; padding: 20px; text-align: left; margin-left: 51%;">  Bani: 8.500$</h1>
+                        <h1 style="font-size:19px; color: #ffffff; margin-top: -1%; background: #ffffff19; width: 42%; border-radius: 5px; padding: 20px; text-align: left; margin-left: 51%;"> Payday la fiecare 30 minute: 4.000$</h1>
+                      </div> 
+                  </div>  
+  
+                    <a class="butonclose" href="#vipbg">CLOSE</a>
+                    <a class="butonbuy" onclick="cumparaGold()">BUY</a>
+  
+                  </div>                   
+                  
+                </div> 
+
+
+
+                <div id="diamond" class="diamondoverlay">
+                  <div class="popup">
+          
+               
+          
+                    <div class="acc">
+                      <h1 style="font-size:30px; color: #ffffff; margin-top: 27%;"> DIAMOND SUBSCRIPTION</h1>
+                    </div>   
+      
+                    <div class="beg">
+                      <div class="continut">
+                        <h1 style="font-size:19px; color: #ffffff; margin-top: -1%; background: #ffffff19; width: 42%; border-radius: 5px; padding: 20px; text-align: left; margin-left: 51%;"> Grad VIP pe server in CHAT + SCOREBOARD</h1>
+                        <h1 style="font-size:19px; color: #ffffff; margin-top: -1%; background: #ffffff19; width: 42%; border-radius: 5px; padding: 20px; text-align: left; margin-left: 51%;"> Grad VIP pe Discord + Acces la camera VIP</h1>
+                        <h1 style="font-size:19px; color: #ffffff; margin-top: -1%; background: #ffffff19; width: 42%; border-radius: 5px; padding: 20px; text-align: left; margin-left: 51%;"> Acces la garaj privat de VIP care contine masinile:
+                          VIP BRONZE + VIP SILVER +
+                          
+                          Mercedes S65,
+                          Mercedes MB300,
+                          Mustang RTR 2018,
+                          Mini Cooper,
+                          Audi A8,
+                          BMW Alphinab7</h1>
+                          <h1 style="font-size:19px; color: #ffffff; margin-top: -1%; background: #ffffff19; width: 42%; border-radius: 5px; padding: 20px; text-align: left; margin-left: 51%;">  Payday la fiecare 30 minute: 4000$</h1>
+                        <h1 style="font-size:19px; color: #ffffff; margin-top: -1%; background: #ffffff19; width: 42%; border-radius: 5px; padding: 20px; text-align: left; margin-left: 51%;"> Bani: 8.500$</h1>
+                      </div> 
+                  </div>  
+  
+                    <a class="butonclose" href="#vipbg">CLOSE</a>
+                    <a class="butonbuy" onclick="cumparaDiamond()">BUY</a>
+  
+                  </div>                   
+                  
+                </div> 
+
+
+                <div id="emerald" class="emeraldoverlay">
+                  <div class="popup">
+
+          
+                    <div class="acc">
+                      <h1 style="font-size:30px; color: #ffffff; margin-top: 27%;"> EMERALD SUBSCRIPTION</h1>
+                    </div>   
+      
+                    <div class="beg">
+                      <div class="continut">
+                        <h1 style="font-size:19px; color: #ffffff; margin-top: -1%; background: #ffffff19; width: 42%; border-radius: 5px; padding: 20px; text-align: left; margin-left: 51%;"> Grad VIP pe server in CHAT + SCOREBOARD</h1>
+                        <h1 style="font-size:19px; color: #ffffff; margin-top: -1%; background: #ffffff19; width: 42%; border-radius: 5px; padding: 20px; text-align: left; margin-left: 51%;">  Grad VIP pe Discord + Acces la camera VIP</h1>
+                        <h1 style="font-size:19px; color: #ffffff; margin-top: -1%; background: #ffffff19; width: 42%; border-radius: 5px; padding: 20px; text-align: left; margin-left: 51%;">Acces la Casa Personala de VIP</h1>
+                        <h1 style="font-size:19px; color: #ffffff; margin-top: -1%; background: #ffffff19; width: 42%; border-radius: 5px; padding: 20px; text-align: left; margin-left: 51%;"> Acces la garaj privat de VIP care contine masinile:
+                          VIP BRONZE + VIP SILVER + VIP GOLD +
+                          
+                          
+                          
+                          Pagani Zonda,
+                          McLaren P1 GTR,
+                          Rolls Royce Dawn ,
+                          Mercedes S65,
+                          Mercedes MB300,
+                          Mustang RTR 2018,
+                          Mini Cooper,
+                          Audi A8,
+                          BMW Alphinab7</h1>
+                          <h1 style="font-size:19px; color: #ffffff; margin-top: -1%; background: #ffffff19; width: 42%; border-radius: 5px; padding: 20px; text-align: left; margin-left: 51%;"> Payday la fiecare 30 minute: 5.000$</h1>
+                        <h1 style="font-size:19px; color: #ffffff; margin-top: -1%; background: #ffffff19; width: 42%; border-radius: 5px; padding: 20px; text-align: left; margin-left: 51%;">  Bani: 13.000$</h1>
+                      </div> 
+                  </div>  
+  
+                    <a class="butonclose" href="#vipbg">CLOSE</a>
+                    <a class="butonbuy" onclick="cumparaEmerald()">BUY</a>
+  
+                  </div>                   
+                  
+                </div> 
+
+        
+                </div>
+  
+                </div>
+                
+
+
+
+
+
+    <script src="scripts.js"></script>
+  </body>
+</html>
